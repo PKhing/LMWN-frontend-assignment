@@ -16,6 +16,9 @@ export const StyledInput = styled("input", {
   border: "none",
   textAlign: "center",
   flexGrow: 1,
+  "@xs": {
+    fontSize: "1rem",
+  },
 
   "&::placeholder": {
     color: "$black400",

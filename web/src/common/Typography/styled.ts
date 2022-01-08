@@ -7,6 +7,9 @@ export const Typography = styled("div", {
       h1: {
         fontWeight: 400,
         fontSize: "4rem",
+        "@xs": {
+          fontSize: "3rem",
+        },
       },
       h3: {
         fontWeight: 800,

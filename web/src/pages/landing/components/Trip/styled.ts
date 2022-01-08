@@ -3,12 +3,19 @@ import {styled} from "config/stitches.config";
 export const TripContainer = styled("div", {
   display: "flex",
   gap: "30px",
+  "@sm": {
+    flexDirection: "column",
+  },
 });
 
 export const MainImage = styled("img", {
   width: "200px",
   borderRadius: "15px",
   objectFit: "cover",
+  "@sm": {
+    width: "100%",
+    maxHeight: "200px",
+  },
 });
 
 export const ContentContainer = styled("div", {
@@ -34,8 +41,12 @@ export const Link = styled("a", {
 
 export const ImageContainer = styled("div", {
   display: "flex",
-  gap: "20px",
   flexWrap: "wrap",
+  gap: "20px",
+  "@sm": {
+    gap: "5px",
+    justifyContent: "space-evenly",
+  },
 });
 
 export const Image = styled("img", {
@@ -43,4 +54,18 @@ export const Image = styled("img", {
   height: "100px",
   borderRadius: "15px",
   objectFit: "cover",
+
+  "@md": {
+    width: "95px",
+    height: "95px",
+    borderRadius: "10px",
+  },
+  "@xs": {
+    width: "85px",
+    height: "85px",
+  },
+  "@fold": {
+    width: "80px",
+    height: "80px",
+  },
 });

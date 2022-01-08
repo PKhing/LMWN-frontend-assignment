@@ -23,6 +23,7 @@ const Trip = (props: ITrip) => {
         </Link>
         <Description description={description} url={url} />
         <Tags tags={tags} css={{margin: "-10px 0 10px 0"}} />
+
         <ImageContainer>
           {photos.slice(1).map((src, index) => (
             <Image src={src} key={index} />

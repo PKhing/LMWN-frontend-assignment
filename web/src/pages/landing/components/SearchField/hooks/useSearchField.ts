@@ -18,11 +18,6 @@ const useSearchField = () => {
     []
   );
 
-  // Clear keyword
-  const handleClear = useCallback(() => {
-    setKeyword("");
-  }, []);
-
   // Change query params (Make new request to API)
   const handleSubmit = useCallback(
     (keyword: string) => {
@@ -44,6 +39,11 @@ const useSearchField = () => {
       clearTimeout(timeoutRef.current);
     };
   }, [handleSubmit, keyword]);
+
+  // Clear keyword
+  const handleClear = useCallback(() => {
+    handleSubmit("");
+  }, [handleSubmit]);
 
   return {keyword, handleChange, handleClear};
 };

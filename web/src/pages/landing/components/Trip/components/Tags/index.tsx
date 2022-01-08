@@ -15,6 +15,7 @@ const Tags = ({tags, css}: TagsProps) => {
             {shouldDisplayAnd && <span>และ</span>}
             <Tag
               onClick={() => {
+                window.scrollTo(0, 0);
                 setSearchParams({keyword: tag});
               }}
             >

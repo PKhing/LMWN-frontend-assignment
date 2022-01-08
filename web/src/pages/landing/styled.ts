@@ -9,3 +9,9 @@ export const Container = styled("div", {
   flexDirection: "column",
   gap: "20px",
 });
+
+export const TripsContainer = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  gap: "50px",
+});

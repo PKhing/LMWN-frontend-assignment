@@ -1,11 +1,21 @@
 import {styled} from "config/stitches.config";
 
-export const TextField = styled("input", {
+export const TextFieldContainer = styled("div", {
+  borderBottom: "1px solid $black400",
+  display: "flex",
+  alignItems: "center",
+
+  "&:focus-within": {
+    borderColor: "$primary",
+  },
+});
+
+export const StyledInput = styled("input", {
   fontFamily: "$NotoSans",
   fontSize: "1.4rem",
   border: "none",
-  borderBottom: "1px solid $black400",
   textAlign: "center",
+  flexGrow: 1,
 
   "&::placeholder": {
     color: "$black400",
@@ -13,6 +23,5 @@ export const TextField = styled("input", {
 
   "&:focus": {
     outline: "transparent",
-    borderColor: "$primary",
   },
 });

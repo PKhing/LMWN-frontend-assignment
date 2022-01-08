@@ -4,16 +4,26 @@ import {useSearchParams} from "react-router-dom";
 const useSearchField = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [keyword, setKeyword] = useState(searchParams.get("keyword") || "");
+
+  // Set Keyword
+  useEffect(() => {
+    setKeyword(searchParams.get("keyword") || "");
+  }, [searchParams]);
+
+  // Change keyword
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setKeyword(event.target.value);
     },
     []
   );
-  useEffect(() => {
-    setKeyword(searchParams.get("keyword") || "");
-  }, [searchParams]);
 
+  // Clear keyword
+  const handleClear = useCallback(() => {
+    setKeyword("");
+  }, []);
+
+  // Change query params (Make new request to API)
   const handleSubmit = useCallback(
     (keyword: string) => {
       if (keyword) setSearchParams({keyword});
@@ -22,6 +32,7 @@ const useSearchField = () => {
     [setSearchParams]
   );
 
+  // Submit after no input change for 500ms
   const timeoutRef = useRef(0);
   useEffect(() => {
     clearTimeout(timeoutRef.current);
@@ -34,7 +45,7 @@ const useSearchField = () => {
     };
   }, [handleSubmit, keyword]);
 
-  return {keyword, handleChange};
+  return {keyword, handleChange, handleClear};
 };
 
 export default useSearchField;

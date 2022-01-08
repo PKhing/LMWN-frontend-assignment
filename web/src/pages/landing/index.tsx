@@ -4,6 +4,7 @@ import useTrips from "./hooks/useTrips";
 import Trip from "./components/Trip";
 import {Container, Layout, TripsContainer} from "./styled";
 import SearchField from "./components/SearchField";
+import TripNotFound from "./components/TripNotFound";
 
 const Landing = () => {
   const trips = useTrips();
@@ -18,6 +19,7 @@ const Landing = () => {
           {trips.map((trip) => (
             <Trip {...trip} key={trip.eid} />
           ))}
+          {!trips.length && <TripNotFound />}
         </TripsContainer>
       </Container>
     </Layout>

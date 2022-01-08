@@ -18,6 +18,20 @@ export const ContentContainer = styled("div", {
   gap: "15px",
 });
 
+export const Link = styled("a", {
+  textDecoration: "none",
+  color: "$black",
+  "&:visited": {
+    color: "$black",
+  },
+  "&:focus": {
+    color: "$black",
+  },
+  "&:active": {
+    color: "$black",
+  },
+});
+
 export const ImageContainer = styled("div", {
   display: "flex",
   gap: "20px",

@@ -16,6 +16,7 @@ export const {
       black400: "#BDBDBD",
       black500: "#929292",
       black600: "#828282",
+      black700: "#555555",
     },
     fonts: {
       NotoSans: "'Noto Sans Thai', sans-serif",

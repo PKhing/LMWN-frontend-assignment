@@ -6,6 +6,7 @@ import {
   ContentContainer,
   Image,
   ImageContainer,
+  Link,
   MainImage,
   TripContainer,
 } from "./styled";
@@ -17,7 +18,9 @@ const Trip = (props: ITrip) => {
     <TripContainer>
       <MainImage src={photos[0]} />
       <ContentContainer>
-        <Typography variant="h3">{title}</Typography>
+        <Link href={url}>
+          <Typography variant="h3">{title}</Typography>
+        </Link>
         <Description description={description} url={url} />
         <Tags tags={tags} css={{margin: "-10px 0 10px 0"}} />
         <ImageContainer>

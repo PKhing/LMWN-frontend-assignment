@@ -17,6 +17,6 @@ export const Tag = styled("a", {
 export const TagsContainer = styled(Typography, {
   color: "$black500",
   "& *": {
-    marginLeft: "2px",
+    marginLeft: "5px",
   },
 });

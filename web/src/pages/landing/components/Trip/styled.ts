@@ -18,3 +18,16 @@ export const ContentContainer = styled("div", {
   textAlign: "left",
   gap: "15px",
 });
+
+export const ImageContainer = styled("div", {
+  display: "flex",
+  gap: "20px",
+  flexWrap: "wrap",
+});
+
+export const Image = styled("img", {
+  width: "100px",
+  height: "100px",
+  borderRadius: "15px",
+  objectFit: "cover",
+});

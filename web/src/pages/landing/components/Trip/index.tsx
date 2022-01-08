@@ -2,7 +2,13 @@ import {Typography} from "common/Typography";
 import React from "react";
 import {ITrip} from "../../../../common/types";
 import Tags from "./components/Tags";
-import {ContentContainer, MainImage, TripContainer} from "./styled";
+import {
+  ContentContainer,
+  Image,
+  ImageContainer,
+  MainImage,
+  TripContainer,
+} from "./styled";
 
 const Trip = (props: ITrip) => {
   const {title, photos, description, tags} = props;
@@ -15,6 +21,11 @@ const Trip = (props: ITrip) => {
           {description}
         </Typography>
         <Tags tags={tags} />
+        <ImageContainer>
+          {photos.slice(1).map((src, index) => (
+            <Image src={src} key={index} />
+          ))}
+        </ImageContainer>
       </ContentContainer>
     </TripContainer>
   );

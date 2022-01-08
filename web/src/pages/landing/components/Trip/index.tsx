@@ -9,18 +9,17 @@ import {
   MainImage,
   TripContainer,
 } from "./styled";
+import Description from "./components/Description";
 
 const Trip = (props: ITrip) => {
-  const {title, photos, description, tags} = props;
+  const {title, photos, description, tags, url} = props;
   return (
     <TripContainer>
       <MainImage src={photos[0]} />
       <ContentContainer>
         <Typography variant="h3">{title}</Typography>
-        <Typography variant="body" css={{color: "$black600"}}>
-          {description}
-        </Typography>
-        <Tags tags={tags} />
+        <Description description={description} url={url} />
+        <Tags tags={tags} css={{margin: "-10px 0 10px 0"}} />
         <ImageContainer>
           {photos.slice(1).map((src, index) => (
             <Image src={src} key={index} />

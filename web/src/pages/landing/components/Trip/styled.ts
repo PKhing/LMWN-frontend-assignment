@@ -7,7 +7,6 @@ export const TripContainer = styled("div", {
 
 export const MainImage = styled("img", {
   width: "200px",
-  height: "280px",
   borderRadius: "15px",
   objectFit: "cover",
 });

@@ -1,8 +1,10 @@
 import React from "react";
+import {useSearchParams} from "react-router-dom";
 import {Tag, TagsContainer} from "./styled";
 import {TagsProps} from "./types";
 
 const Tags = ({tags, css}: TagsProps) => {
+  const [, setSearchParams] = useSearchParams();
   return (
     <TagsContainer variant="tag" css={css}>
       หมวด -
@@ -11,7 +13,13 @@ const Tags = ({tags, css}: TagsProps) => {
         return (
           <React.Fragment key={tag}>
             {shouldDisplayAnd && <span>และ</span>}
-            <Tag href="">{tag}</Tag>
+            <Tag
+              onClick={() => {
+                setSearchParams({keyword: tag});
+              }}
+            >
+              {tag}
+            </Tag>
           </React.Fragment>
         );
       })}

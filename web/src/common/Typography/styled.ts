@@ -17,7 +17,10 @@ export const Typography = styled("div", {
         fontWeight: 400,
         fontSize: "1rem",
       },
-      tag: {},
+      tag: {
+        fontWeight: 400,
+        fontSize: "0.875rem",
+      },
     },
   },
   defaultVariants: {

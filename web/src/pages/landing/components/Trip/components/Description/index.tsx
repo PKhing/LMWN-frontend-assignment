@@ -7,7 +7,7 @@ import {DescriptionProps} from "./types";
 const Description = ({description, url}: DescriptionProps) => {
   const descriptionLines = useDescription(description);
   return (
-    <>
+    <div>
       {descriptionLines.map((line, index) => {
         const isLastLine = index === descriptionLines.length - 1;
         return (
@@ -17,7 +17,7 @@ const Description = ({description, url}: DescriptionProps) => {
           </Typography>
         );
       })}
-    </>
+    </div>
   );
 };
 

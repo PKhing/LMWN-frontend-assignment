@@ -11,7 +11,7 @@ const useTrips = () => {
   useEffect(() => {
     const getTrips = async () => {
       try {
-        const res = await apiClient.get("/", {
+        const res = await apiClient.get("/trips", {
           params: {keyword: searchParams.get("keyword")},
         });
         setTrips(res.data);

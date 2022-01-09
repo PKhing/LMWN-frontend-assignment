@@ -1,37 +1,16 @@
 import {act, renderHook} from "@testing-library/react-hooks";
 import React from "react";
+import {mockUseSearchParams} from "common/test/mockUseSearchParams";
 
 describe("useSearchField", () => {
   let mockParamsKeyword = "keyword 1";
   const mockKeyword = "keyword 2";
 
-  // useSearchParams
-  const setSearchParamsSpy = jest.fn((keyword: string) => {
-    mockParamsKeyword = keyword;
-  });
-
-  const mockSearchParams = [
-    {
-      get: (string: string) =>
-        string === "keyword" ? mockParamsKeyword : undefined,
-    },
-    setSearchParamsSpy,
-  ];
-
-  const useSearchParamsSpy = jest.fn(() => mockSearchParams);
-
-  jest.doMock("react-router-dom", () => ({
-    useSearchParams: useSearchParamsSpy,
-  }));
-
-  beforeEach(() => {
-    jest.clearAllMocks();
-    jest.useRealTimers();
-  });
-
-  //Test
+  const {mockSearchParams, useSearchParamsSpy, setSearchParamsSpy} =
+    mockUseSearchParams();
 
   it("should set keyword same as keyword in search param", async () => {
+    useSearchParamsSpy.mockReturnValue(mockSearchParams(mockParamsKeyword));
     const {default: useSearchField} = await import("./useSearchField");
     const {result} = renderHook(() => useSearchField());
 
@@ -39,10 +18,7 @@ describe("useSearchField", () => {
   });
 
   it("should set keyword as empty string if keyword in search param is undefined", async () => {
-    useSearchParamsSpy.mockReturnValue([
-      {get: (string: string) => undefined},
-      setSearchParamsSpy,
-    ]);
+    useSearchParamsSpy.mockReturnValue(mockSearchParams(""));
     const {default: useSearchField} = await import("./useSearchField");
     const {result} = renderHook(() => useSearchField());
 
@@ -89,7 +65,6 @@ describe("useSearchField", () => {
       result.current.handleClear();
     });
 
-    expect(setSearchParamsSpy).toBeCalledTimes(1);
     expect(setSearchParamsSpy).toBeCalledWith({});
     expect(result.current.keyword).toBe("");
   });

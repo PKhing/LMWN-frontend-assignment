@@ -3,6 +3,7 @@ import {shallow} from "enzyme";
 
 describe("Tags", () => {
   const {setSearchParamsSpy} = mockUseSearchParams();
+  global.scrollTo = jest.fn();
 
   afterEach(() => {
     jest.clearAllMocks();
@@ -39,9 +40,7 @@ describe("Tags", () => {
 
     wrapper.childAt(1).simulate("click");
     expect(setSearchParamsSpy).toBeCalledWith({keyword: mockTags[0]});
-
-    wrapper.childAt(2).simulate("click");
-    expect(setSearchParamsSpy).toBeCalledWith({keyword: mockTags[1]});
+    expect(window.scrollTo).toBeCalledWith(0, 0);
   });
 });
 

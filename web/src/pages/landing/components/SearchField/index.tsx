@@ -1,4 +1,4 @@
-import TextField from "common/TextField";
+import TextField from "common/components/TextField";
 import React from "react";
 import useSearchField from "./hooks/useSearchField";
 import {IoSearch, IoCloseSharp} from "react-icons/io5";

@@ -1,4 +1,4 @@
-import {Typography} from "common/Typography";
+import {Typography} from "common/components/Typography";
 import React from "react";
 import useTrips from "./hooks/useTrips";
 import Trip from "./components/Trip";

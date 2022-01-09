@@ -1,6 +1,6 @@
-import {Typography} from "common/Typography";
+import {Typography} from "common/components/Typography";
 import React from "react";
-import {ITrip} from "../../../../common/types";
+import {ITrip} from "common/types";
 import Tags from "./components/Tags";
 import {
   ContentContainer,

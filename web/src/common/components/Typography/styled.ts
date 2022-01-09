@@ -16,6 +16,10 @@ export const Typography = styled("div", {
         fontSize: "1.5rem",
         lineHeight: "1.75rem",
       },
+      h4: {
+        fontWeight: 600,
+        fontSize: "1.5rem",
+      },
       body: {
         fontWeight: 400,
         fontSize: "1rem",

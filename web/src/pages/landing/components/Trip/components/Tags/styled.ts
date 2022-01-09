@@ -1,4 +1,4 @@
-import {Typography} from "common/Typography";
+import {Typography} from "common/components/Typography";
 import {styled} from "config/stitches.config";
 
 export const Tag = styled("span", {

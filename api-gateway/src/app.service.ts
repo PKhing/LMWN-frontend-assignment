@@ -9,7 +9,7 @@ export class AppService {
 
   async getTrips(): Promise<Trip[]> {
     const res = await lastValueFrom(
-      this.httpService.get('http://localhost:9000/trips'),
+      this.httpService.get(`${process.env.JSON_SERVER_URL}/trips`),
     );
     return res.data;
   }

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const config = {
-  baseURL: " http://192.168.1.126:3001/api",
+  baseURL: process.env.REACT_APP_API_BASE_URL,
 };
 
 export const apiClient = axios.create(config);

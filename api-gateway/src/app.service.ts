@@ -1,5 +1,9 @@
 import { HttpService } from '@nestjs/axios';
-import { Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
 import { lastValueFrom } from 'rxjs';
 import { Trip } from './entities/trip.entity';
 
@@ -8,10 +12,21 @@ export class AppService {
   constructor(private httpService: HttpService) {}
 
   async getTrips(): Promise<Trip[]> {
-    const res = await lastValueFrom(
-      this.httpService.get(`${process.env.JSON_SERVER_URL}/trips`),
-    );
-    return res.data;
+    try {
+      const res = await lastValueFrom(
+        this.httpService.get(`${process.env.JSON_SERVER_URL}/trips`),
+      );
+      return res.data;
+    } catch (err) {
+      if (!err.response) {
+        throw new InternalServerErrorException('Cannot connect to JSON server');
+      } else {
+        throw new HttpException(
+          `JSON server error: ${err.response.statusText}`,
+          err.response.status,
+        );
+      }
+    }
   }
 
   async getTripsByKeyword(keyword: string): Promise<Trip[]> {
@@ -20,11 +35,12 @@ export class AppService {
   }
 
   filterTripsByKeyword(trips: Trip[], keyword: string): Trip[] {
+    keyword = keyword.toLowerCase();
     return trips.filter((trip) => {
       return (
-        trip.title.includes(keyword) ||
-        trip.description.includes(keyword) ||
-        trip.tags.some((tag) => tag.includes(keyword))
+        trip.title.toLowerCase().includes(keyword) ||
+        trip.description.toLowerCase().includes(keyword) ||
+        trip.tags.some((tag) => tag.toLowerCase().includes(keyword))
       );
     });
   }

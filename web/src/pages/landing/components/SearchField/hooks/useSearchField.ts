@@ -3,7 +3,7 @@ import {useSearchParams} from "react-router-dom";
 
 const useSearchField = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [keyword, setKeyword] = useState(searchParams.get("keyword") || "");
+  const [keyword, setKeyword] = useState("");
 
   // Set Keyword
   useEffect(() => {
@@ -42,6 +42,7 @@ const useSearchField = () => {
 
   // Clear keyword
   const handleClear = useCallback(() => {
+    setKeyword("");
     handleSubmit("");
   }, [handleSubmit]);
 

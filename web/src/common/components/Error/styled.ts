@@ -3,7 +3,7 @@ import {styled} from "config/stitches.config";
 export const ErrorContainer = styled("div", {
   boxSizing: "border-box",
   backgroundColor: "$error",
-  position: "absolute",
+  position: "fixed",
   color: "white",
   padding: "5px 20px",
   borderRadius: "5px",

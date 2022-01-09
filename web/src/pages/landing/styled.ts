@@ -9,6 +9,7 @@ export const Container = styled("div", {
   flexDirection: "column",
   gap: "20px",
   padding: "50px 30px",
+  textAlign: "center",
   "@sm": {
     padding: "50px 20px",
   },

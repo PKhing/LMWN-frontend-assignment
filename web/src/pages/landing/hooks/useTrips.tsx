@@ -10,7 +10,6 @@ const useTrips = () => {
   const {openError} = useError();
   useEffect(() => {
     const getTrips = async () => {
-      console.log("get", searchParams.get("keyword"));
       try {
         const res = await apiClient.get("/", {
           params: {keyword: searchParams.get("keyword")},

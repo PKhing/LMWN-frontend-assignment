@@ -4,6 +4,10 @@ import {shallow} from "enzyme";
 describe("Tags", () => {
   const {setSearchParamsSpy} = mockUseSearchParams();
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it(`Should render "และ" before the last tag if there are more than one tag`, async () => {
     const {default: Tags} = await import(".");
 

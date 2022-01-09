@@ -9,6 +9,10 @@ describe("useSearchField", () => {
   const {mockSearchParams, useSearchParamsSpy, setSearchParamsSpy} =
     mockUseSearchParams();
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should set keyword same as keyword in search param", async () => {
     useSearchParamsSpy.mockReturnValue(mockSearchParams(mockParamsKeyword));
     const {default: useSearchField} = await import("./useSearchField");
